@@ -34,8 +34,8 @@ public class ArrayVsArrayList {
         fruitsArrayList.remove("Banana");
 
         // Print
-        System.out.println(fruitsArray); // Print memory address of an array
-        System.out.println(fruitsArrayList); // Print
+        System.out.println(fruitsArray); // Print memory address of an array - [Ljava.lang.String;@27bc2616
+        System.out.println(fruitsArrayList); // [Guava, Papaya]
         // Printing Arrays is pretty useless, Printing ArrayLists works perfectly
     }
 }
