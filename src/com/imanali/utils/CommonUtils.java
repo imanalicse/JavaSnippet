@@ -1,9 +1,14 @@
 package com.imanali.utils;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Base64;
 
 public class CommonUtils {
 
@@ -12,6 +17,27 @@ public class CommonUtils {
         byte[] encoded = java.util.Base64.getEncoder().encode(inFileBytes);
         String base64EncodedString = new String(encoded);
         return base64EncodedString;
+    }
+
+    public static String getByteArrayFromImageURL(String url) {
+        try {
+            URL imageUrl = new URL(url);
+            URLConnection ucon = imageUrl.openConnection();
+            InputStream is = ucon.getInputStream();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int read = 0;
+            while ((read = is.read(buffer, 0, buffer.length)) != -1) {
+                baos.write(buffer, 0, read);
+            }
+            baos.flush();
+
+            return Base64.getEncoder().encodeToString(baos.toByteArray());
+        }
+        catch (Exception e) {
+            //  Log.d("Error", e.toString());
+        }
+        return null;
     }
 /*
     public static Mail attachmentFiles(Mail mailInfo, String jsonString) {
