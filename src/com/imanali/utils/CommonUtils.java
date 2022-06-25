@@ -13,4 +13,13 @@ public class CommonUtils {
         String base64EncodedString = new String(encoded);
         return base64EncodedString;
     }
+
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
+    }
 }
