@@ -22,21 +22,21 @@ public class LogUtils {
         }
     }
 
-
-    public static void write(String message) {
-        LogUtils.logWrite(message, "", "");
+    // https://stackoverflow.com/questions/31171089/passing-any-type-as-a-method-parameter
+    public static void write(Object message) {
+         LogUtils.logWrite(message, "", "");
     }
 
-    public static void write(String message, String fileName) {
+    public static void write(Object message, String fileName) {
         LogUtils.logWrite(message, fileName, "");
     }
 
-    public static void write(String message, String fileName, String filePath) {
+    public static void write(Object message, String fileName, String filePath) {
         LogUtils.logWrite(message, fileName, filePath);
     }
 
     // more - https://stackoverflow.com/questions/2885173/how-do-i-create-a-file-and-write-to-it
-    private static void logWrite(String message, String fileName, String filePath) {
+    private static void logWrite(Object message, String fileName, String filePath) {
         try {
             if (fileName.isEmpty()) {
                 fileName = "debug.log";
