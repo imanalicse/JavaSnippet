@@ -1,5 +1,10 @@
 package com.imanali;
 
+import com.imanali.learning.MapAndHashMap;
+
+import java.time.Instant;
+import java.time.LocalDateTime;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -20,5 +25,6 @@ public class Main {
         s3.subscribeChannel(iman);
 
         iman.upload("How to learn programming?");
+        System.out.println("JavaSnippet Started");
     }
 }
